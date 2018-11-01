@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Meal Calculator</string>
+    <string name="btn_charge">Calculate Charges</string>
+    <string name="description">Meal Image</string>
+    <string name="prompt">Select Tip</string>
+    <string name="txt_price">Meal Amount</string>
+    <string name="txt_title">Meal Charge</string>
+    <string-array name="txt_group">
+        <item>5%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>25%</item>
+    </string-array>
+</resources>
