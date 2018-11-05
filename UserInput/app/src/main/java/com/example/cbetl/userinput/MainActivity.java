@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    double tipAmount;
     int mealCost;
     double totalCharges;
     String tipPercent;
@@ -33,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
                        } catch (NumberFormatException d){
                            mealCost = 0;
                        DecimalFormat currency = new DecimalFormat("$###,###.##");
-                       totalCharges = mealCost * tipAmount;
                        tipPercent = group.getSelectedItem().toString();
+                       double tip = Double.parseDouble(tipPercent);
+                       totalCharges = mealCost * tip;
                        result.setText("Total cost of a meal that is $" + mealCost + " and a tip of "
                                + tipPercent + " is " + currency.format(totalCharges));
 
