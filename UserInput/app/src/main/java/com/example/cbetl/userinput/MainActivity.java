@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
     int mealCost;
     double totalCharges;
+    double tip;
     String tipPercent;
 
     @Override
@@ -27,18 +28,25 @@ public class MainActivity extends AppCompatActivity {
                    public void onClick(View view) {
                        String holdEditText = "";
                        holdEditText = mealAmount.getText().toString();
+
                        try {
                            mealCost = Integer.parseInt(holdEditText);
-                       } catch (NumberFormatException d){
+                       } catch (NumberFormatException d) {
                            mealCost = 0;
+                       }
+
                        DecimalFormat currency = new DecimalFormat("$###,###.##");
                        tipPercent = group.getSelectedItem().toString();
-                       double tip = Double.parseDouble(tipPercent);
-                       totalCharges = mealCost * tip;
+
+                       try {
+                           tip = Double.parseDouble(tipPercent);
+                       } catch (NumberFormatException d) {
+                           tip = 0;
+                       }
+
+                       totalCharges = mealCost + (mealCost * tip);
                        result.setText("Total cost of a meal that is $" + mealCost + " and a tip of "
                                + tipPercent + " is " + currency.format(totalCharges));
-
-                   }
                }
     });
 }}
