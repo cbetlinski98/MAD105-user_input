@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
-    int mealCost;
+    double mealCost;
     double totalCharges;
     double tip;
     String tipPercent;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                        holdEditText = mealAmount.getText().toString();
 
                        try {
-                           mealCost = Integer.parseInt(holdEditText);
+                           mealCost = Double.parseDouble(holdEditText);
                        } catch (NumberFormatException d) {
                            mealCost = 0;
                        }
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                        tipPercent = group.getSelectedItem().toString();
 
                        try {
-                           tip = Double.parseDouble(tipPercent);
+                           tip = new Double(tipPercent.trim().replace("%", ""))/100;
                        } catch (NumberFormatException d) {
                            tip = 0;
                        }
